@@ -5,9 +5,8 @@ public class Knife extends ForeignObj {
         super("Faca", 3);
     }
 
-    @Override
+    @Override //Alteando as chances de remoção
     public boolean attemptRemoval() {
-        // Retirar com força: 60% de chance de sucesso
         return Math.random() < 0.6;
     }
 }

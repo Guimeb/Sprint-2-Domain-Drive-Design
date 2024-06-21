@@ -9,6 +9,7 @@ public class Player {
         this.nome = nome;
     }
 
+    // Getters e setters
     public String getNome() {
         return this.nome;
     }

@@ -19,14 +19,24 @@ public class BodyPart {
         this.hasForeignObj = false;
         this.foreignObjInPart = new HashMap<>();
     }
+    
+    public void addForeignObj(ForeignObj foreignObj) { // Adiciona um corpo estranho a parte do corpo
+        this.hasForeignObj = true;
+        this.foreignObjInPart.put(foreignObj.getItemType(), foreignObj);
+    }
+
+    public void removeForeignObj() { // Remove um corpo estranho da parte do corpo
+        this.hasForeignObj = false;
+        this.foreignObjInPart.clear();
+    }
+
+    public boolean hasForeignObj() { // Verifica se a parte do corpo tem um corpo estranho
+        return hasForeignObj;
+    }
 
     // Getters e setters
     public Part getPartType() {
         return partType;
-    }
-
-    public boolean hasForeignObj() {
-        return hasForeignObj;
     }
 
     public void setHasForeignObj(boolean hasForeignObj) {
@@ -35,15 +45,5 @@ public class BodyPart {
 
     public Map<String, ForeignObj> getForeignObjInPart() {
         return foreignObjInPart;
-    }
-
-    public void addForeignObj(ForeignObj foreignObj) {
-        this.hasForeignObj = true;
-        this.foreignObjInPart.put(foreignObj.getItemType(), foreignObj);
-    }
-
-    public void removeForeignObj() {
-        this.hasForeignObj = false;
-        this.foreignObjInPart.clear();
     }
 }

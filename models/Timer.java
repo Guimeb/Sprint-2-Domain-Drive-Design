@@ -12,6 +12,7 @@ public class Timer {
         this.endTime = System.currentTimeMillis();
     }
 
+    //Getter e setter
     public long getElapsedTime() {
         return this.endTime - this.startTime;
     }

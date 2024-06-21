@@ -8,8 +8,11 @@ public abstract class ForeignObj {
     public ForeignObj(String itemType, int difficulty) {
         this.itemType = itemType;
         this.difficulty = difficulty;
-        this.stuck = true; // Por padrão, o objeto é inicialmente considerado preso
+        this.stuck = true;
     }
+
+    // Método abstrato para tentativa de remoção
+    public abstract boolean attemptRemoval();
 
     // Getters e setters
     public String getItemType() {
@@ -28,6 +31,4 @@ public abstract class ForeignObj {
         this.stuck = stuck;
     }
 
-    // Método abstrato para tentativa de remoção
-    public abstract boolean attemptRemoval();
 }

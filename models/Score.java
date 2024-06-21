@@ -17,6 +17,7 @@ public class Score {
         }
     }
 
+    //Getter e setter
     public int getScore() {
         return this.score;
     }

@@ -5,9 +5,8 @@ public class Needle extends ForeignObj {
         super("Agulha", 4);
     }
 
-    @Override
+    @Override //Alteando as chances de remoção
     public boolean attemptRemoval() {
-        // Retirar com delicadeza: 80% de chance de sucesso
         return Math.random() < 0.8;
     }
 }

@@ -5,9 +5,8 @@ public class Glass extends ForeignObj {
         super("Vidro", 1);
     }
 
-    @Override
+    @Override //Alteando as chances de remoção
     public boolean attemptRemoval() {
-        // Retirar rápido: 70% de chance de sucesso
         return Math.random() < 0.7;
     }
 }
