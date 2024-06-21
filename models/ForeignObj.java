@@ -1,35 +1,18 @@
 package models;
 
-
-public class ForeignObj {
-    private Type itemType;
+public abstract class ForeignObj {
+    private String itemType;
     private int difficulty;
-    private boolean stuck; // Variável para indicar se o objeto está preso ou não
+    private boolean stuck;
 
-    public enum Type {
-        VIDRO(1),
-        TESOURA(2),
-        FACA(3);
-
-        private final int difficultyLevel;
-
-        Type(int difficultyLevel) {
-            this.difficultyLevel = difficultyLevel;
-        }
-
-        public int getDifficultyLevel() {
-            return difficultyLevel;
-        }
-    }
-
-    public ForeignObj(Type itemType) {
+    public ForeignObj(String itemType, int difficulty) {
         this.itemType = itemType;
-        this.difficulty = itemType.getDifficultyLevel();
+        this.difficulty = difficulty;
         this.stuck = true; // Por padrão, o objeto é inicialmente considerado preso
     }
 
     // Getters e setters
-    public Type getItemType() {
+    public String getItemType() {
         return itemType;
     }
 
@@ -44,4 +27,7 @@ public class ForeignObj {
     public void setStuck(boolean stuck) {
         this.stuck = stuck;
     }
+
+    // Método abstrato para tentativa de remoção
+    public abstract boolean attemptRemoval();
 }

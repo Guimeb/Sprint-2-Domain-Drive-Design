@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class BodyPart {
     private Part partType;
-    private boolean hasForeignObj; // Variável para indicar se há um ForeignObj preso na parte do corpo
-    private Map<ForeignObj.Type, ForeignObj> foreignObjInPart; // Mapeamento de objetos estrangeiros presos na parte do corpo
+    private boolean hasForeignObj;
+    private Map<String, ForeignObj> foreignObjInPart;
 
     public enum Part {
         BRACO,
@@ -16,7 +16,7 @@ public class BodyPart {
 
     public BodyPart(Part partType) {
         this.partType = partType;
-        this.hasForeignObj = false; // Por padrão, não há objeto estrangeiro preso na parte do corpo
+        this.hasForeignObj = false;
         this.foreignObjInPart = new HashMap<>();
     }
 
@@ -33,7 +33,17 @@ public class BodyPart {
         this.hasForeignObj = hasForeignObj;
     }
 
-    public Map<ForeignObj.Type, ForeignObj> getForeignObjInPart() {
+    public Map<String, ForeignObj> getForeignObjInPart() {
         return foreignObjInPart;
+    }
+
+    public void addForeignObj(ForeignObj foreignObj) {
+        this.hasForeignObj = true;
+        this.foreignObjInPart.put(foreignObj.getItemType(), foreignObj);
+    }
+
+    public void removeForeignObj() {
+        this.hasForeignObj = false;
+        this.foreignObjInPart.clear();
     }
 }

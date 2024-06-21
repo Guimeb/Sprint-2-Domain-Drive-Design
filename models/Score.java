@@ -11,6 +11,12 @@ public class Score {
         this.score++;
     }
 
+    public void decrementScore() {
+        if (this.score > 0) {
+            this.score--;
+        }
+    }
+
     public int getScore() {
         return this.score;
     }
